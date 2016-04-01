@@ -1,7 +1,6 @@
 package org.checkchag.controller;
 
 import java.util.List;
-import java.util.Locale;
 
 import javax.inject.Inject;
 
@@ -11,11 +10,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 
 @Controller
 @RequestMapping("/check")
@@ -25,15 +24,16 @@ public class CheckContoller {
 	
 	private static final Logger logger = LoggerFactory.getLogger(CheckContoller.class);
 	
+
 	@Inject
-	MemberServiceImpl service;
+	private MemberServiceImpl service;
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	
 	//register GET방식으로 접속을 하게되면 회원가입을할수있는 화면이 나와야한다.
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public void registerGET() {
+	public void registerGET() throws Exception {
 		logger.info("registerGET view registerForm");
 
 	}
@@ -54,10 +54,9 @@ public class CheckContoller {
 	
 	
 	@RequestMapping(value="/list")
-	public void listGET(Model model) throws Exception{
+	public void listGET(ModelMap model) throws Exception{
 		logger.info("listGET");
-		logger.info(service.getVO("hyun113").toString());
-//		model.addAttribute("list", service.getList());
+		model.addAttribute("list", service.getList());
 	}
 	
 	@RequestMapping(value="/listJSON")
