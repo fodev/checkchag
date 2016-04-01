@@ -56,9 +56,9 @@ public class ServiceTest {
 	public void test5() throws Exception{
 		MemberVO vo=new MemberVO();
 		vo.setAge(24);
-		vo.setEmail("kane0625");
-		vo.setUserpwd("guswns3");
-		vo.setUserid("hyun1134");
+		vo.setEmail("kane06252");
+		vo.setUserpwd("guswns322");
+		vo.setUserid("hyun11343");
 		service.register(vo);
 	
 	}
