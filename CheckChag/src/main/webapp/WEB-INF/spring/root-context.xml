@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+
+	<bean id="memberDAO" class="org.checkchag.persistence.MemberDAOImpl">
+	</bean>
+
+	<!-- 서비스 객체를 만들때 DAO객체를 넣어준다. -->
+	<bean class="org.checkchag.service.MemberServiceImpl">
+	<constructor-arg name="dao" ref="memberDAO"></constructor-arg>
+	</bean>
+
+	<bean class="com.zaxxer.hikari.HikariDataSource" id="dataSource">
+		<property value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" name="driverClassName" />
+		<property value="jdbc:log4jdbc:mysql://localhost:3306/before5"
+			name="jdbcUrl" />
+		<property value="root" name="username" />
+		<property value="insb501463" name="password" />
+		<property value="10" name="maximumPoolSize" />
+		<property value="select 1" name="connectionTestQuery" />
+		
+		<property name="dataSourceProperties">
+			
+			<props>
+				<prop key="cachePrepStmts">true</prop>
+				<prop key="prepStmtCacheSize">250</prop>
+				<prop key="prepStmtCacheSqlLimit">2048</prop>
+				<prop key="useServerPrepStmts">true</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactory">
+		<property value="classpath:mybatis-config.xml" name="configLocation" />
+		<property name="dataSource" ref="dataSource" />
+		<property value="classpath:mappers/**/*.xml" name="mapperLocations" />
+	</bean>
+
+	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession">
+		<constructor-arg ref="sqlSessionFactory" index="0" />
+	</bean>
+
+</beans>

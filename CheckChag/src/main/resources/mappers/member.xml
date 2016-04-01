@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="org.checkchag.persistence.MemberMapper">
+
+	<insert parameterType="org.checkchag.domain.MemberVO" id="insert"> insert
+		into tbl_member (userid, userpwd, age, email) values( #{userid},
+		#{userpwd}, #{age}, #{email})
+	</insert>
+	
+	<select id="selectAll" resultType="org.checkchag.domain.MemberVO"> 
+		select * from tbl_member
+	</select>
+	
+	<select parameterType="string" id="selectOne"
+		resultType="org.checkchag.domain.MemberVO"> select
+		* from tbl_member where userid = #{userid}
+	</select>
+	
+	<update parameterType="org.checkchag.domain.MemberVO" id="update"> update
+		tbl_member set userpwd=#{userpwd}, email=#{email},
+		 age=#{age}, updatedate=now() where userid =#{userid}
+	</update>
+	
+	<delete parameterType="string" id="delete"> delete from tbl_member where
+		userid=#{id}
+	</delete>
+</mapper>
