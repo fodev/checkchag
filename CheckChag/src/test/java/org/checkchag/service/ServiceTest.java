@@ -1,4 +1,4 @@
-package org.checkchag.controller;
+package org.checkchag.service;
 
 import java.util.List;
 
@@ -22,6 +22,7 @@ public class ServiceTest {
 	@Inject
 	MemberServiceImpl service;
 	
+	//selectALL
 	@Test
 	public void test() throws Exception{
 		List<MemberVO> list=service.getList();
@@ -30,16 +31,19 @@ public class ServiceTest {
 		}
 	}
 	
+	//selectOne
 	@Test
 	public void test2() throws Exception{
 		logger.info(service.getVO("hyun11").toString());
 	}
 	
+	//delete
 	@Test
 	public void test3() throws Exception{
 		service.delete("hyun11");
 	}
 	
+	//update
 	@Test
 	public void test4() throws Exception{
 		MemberVO vo=new MemberVO();
@@ -51,7 +55,7 @@ public class ServiceTest {
 	
 	}
 	
-
+	//insert
 	@Test
 	public void test5() throws Exception{
 		MemberVO vo=new MemberVO();
@@ -59,6 +63,8 @@ public class ServiceTest {
 		vo.setEmail("kane06252");
 		vo.setUserpwd("guswns322");
 		vo.setUserid("hyun11343");
+		vo.setUsername("hyunjun");
+		
 		service.register(vo);
 	
 	}

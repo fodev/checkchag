@@ -6,9 +6,9 @@
 
 <mapper namespace="org.checkchag.persistence.MemberMapper">
 
-	<insert parameterType="org.checkchag.domain.MemberVO" id="insert"> insert
-		into tbl_member (userid, userpwd, age, email) values( #{userid},
-		#{userpwd}, #{age}, #{email})
+	<insert parameterType="org.checkchag.domain.MemberVO" id="insert"> 
+		insert into tbl_member (userid, userpwd, username, email, age) 
+		values(#{userid}, #{userpwd}, #{username}, #{email}, #{age})
 	</insert>
 	
 	<select id="selectAll" resultType="org.checkchag.domain.MemberVO"> 
@@ -21,7 +21,7 @@
 	</select>
 	
 	<update parameterType="org.checkchag.domain.MemberVO" id="update"> update
-		tbl_member set userpwd=#{userpwd}, email=#{email},
+		tbl_member set userpwd=#{userpwd},username=#{username}, email=#{email},
 		 age=#{age}, updatedate=now() where userid =#{userid}
 	</update>
 	

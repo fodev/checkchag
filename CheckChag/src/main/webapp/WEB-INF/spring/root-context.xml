@@ -20,10 +20,10 @@
 
 	<bean class="com.zaxxer.hikari.HikariDataSource" id="dataSource">
 		<property value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" name="driverClassName" />
-		<property value="jdbc:log4jdbc:mysql://localhost:3306/before5"
+		<property value="jdbc:log4jdbc:mysql://121.166.177.103:3627/before5"
 			name="jdbcUrl" />
-		<property value="root" name="username" />
-		<property value="insb501463" name="password" />
+		<property value="before5" name="username" />
+		<property value="bitjava" name="password" />
 		<property value="10" name="maximumPoolSize" />
 		<property value="select 1" name="connectionTestQuery" />
 		

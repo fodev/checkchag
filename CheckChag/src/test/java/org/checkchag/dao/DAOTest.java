@@ -1,4 +1,4 @@
-package org.checkchag.controller;
+package org.checkchag.dao;
 
 import java.util.List;
 
@@ -22,6 +22,7 @@ public class DAOTest {
 	@Inject
 	MemberDAOImpl dao;
 	
+	//insert
 	@Test
 	public void test() throws Exception {
 		MemberVO vo= new MemberVO();
@@ -29,6 +30,7 @@ public class DAOTest {
 		vo.setEmail("kane72743");
 		vo.setUserid("hyun113");
 		vo.setUserpwd("12343");
+		vo.setUsername("hyunjun");
 		dao.insert(vo);
 	}
 
@@ -59,6 +61,7 @@ public class DAOTest {
 		vo.setEmail("kane72743");
 		vo.setUserid("hyun113");
 		vo.setUserpwd("123434444");
+		vo.setUsername("Hyunjun");
 		dao.update(vo);
 	}
 }
