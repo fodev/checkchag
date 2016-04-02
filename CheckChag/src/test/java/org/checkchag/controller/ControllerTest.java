@@ -12,6 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -43,6 +44,11 @@ public class ControllerTest {
 	public void test2() throws Exception {
 		mockMvc.perform(MockMvcRequestBuilders.get("/check/list"));
 		//url 에 접근을 해주는 기능+ 서버를 실행해주는 기능을 해줌 
-		
+	}
+	
+	@Test
+	public void test3() throws Exception {
+		mockMvc.perform(MockMvcRequestBuilders.get("/check/listJSON")).andDo(MockMvcResultHandlers.print());
+		//url 에 접근을 해주는 기능+ 서버를 실행해주는 기능을 해줌 
 	}
 }

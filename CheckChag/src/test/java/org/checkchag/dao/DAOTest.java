@@ -64,4 +64,5 @@ public class DAOTest {
 		vo.setUsername("Hyunjun");
 		dao.update(vo);
 	}
+
 }

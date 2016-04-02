@@ -23,7 +23,7 @@ public abstract class GenericDAOImpl<E, K> implements GenericDAO<E, K> {
 	// 하지만 모든 Sql문을 처리만 다르고 연결을 맺고 예외를 처리하고 연결을 끊는 부분은 동일하기 때문에
 	// TempletePattern을 이용하여 예외 처리와 Connection와 close()처리를 해준다.
 	@Inject
-	private SqlSessionTemplate sqlSession;
+	protected SqlSessionTemplate sqlSession;
 	
 	
 	//각각의 DAO가 호출해야 할 Sql mapper 경로는 서로 동일하지 않다. 
@@ -64,5 +64,7 @@ public abstract class GenericDAOImpl<E, K> implements GenericDAO<E, K> {
 	public void delete(K key) throws Exception {
 		sqlSession.delete(this.path+"delete",key);
 	}
+	
+	
 
 }

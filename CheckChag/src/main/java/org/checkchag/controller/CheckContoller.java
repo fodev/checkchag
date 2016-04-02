@@ -10,11 +10,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import net.sf.json.JSONArray;
 
 @Controller
 @RequestMapping("/check")
@@ -38,6 +39,7 @@ public class CheckContoller {
 
 	}
 	
+	//MemberVO라고 적으면 파라미터수집을 자동으로 한다.
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String registerPOST(MemberVO vo, RedirectAttributes rttr) {
 		logger.info("registerPOST"+vo);
@@ -54,15 +56,16 @@ public class CheckContoller {
 	
 	
 	@RequestMapping(value="/list")
-	public void listGET(ModelMap model) throws Exception{
+	public void listGET(Model model) throws Exception{
+		JSONArray jsonObject = JSONArray.fromObject(service.getList()); 
 		logger.info("listGET");
-		model.addAttribute("list", service.getList());
+		model.addAttribute("list", jsonObject);
 	}
 	
+	//Ajax처리를 위한 Json
 	@RequestMapping(value="/listJSON")
-	public @ResponseBody List<MemberVO> listJSON(Model model) throws Exception{
-		logger.info("listJSON");
-		return  service.getList();
+	public   @ResponseBody  List<MemberVO> listJSON(Model model) throws Exception{
+		return service.getList();
 	}
 }
 

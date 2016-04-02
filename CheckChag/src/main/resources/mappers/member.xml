@@ -16,8 +16,8 @@
 	</select>
 	
 	<select parameterType="string" id="selectOne"
-		resultType="org.checkchag.domain.MemberVO"> select
-		* from tbl_member where userid = #{userid}
+		resultType="org.checkchag.domain.MemberVO"> 
+		select * from tbl_member where userid = #{userid}
 	</select>
 	
 	<update parameterType="org.checkchag.domain.MemberVO" id="update"> update

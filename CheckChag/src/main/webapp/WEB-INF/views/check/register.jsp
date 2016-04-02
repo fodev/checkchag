@@ -11,6 +11,7 @@
 <form method="post">
 	<div><input type="text" name="userid" placeholder="ID"></div>
 	<div><input type="text" name="userpwd" placeholder="password"></div>
+	<div><input type="text" name="username" placeholder="name"></div>
 	<div><input type="number" min="1" max="100" name="age" placeholder="age"></div>
 	<div><input type="text" name="email" placeholder="Email"></div>
 	<div><button>join</button></div>

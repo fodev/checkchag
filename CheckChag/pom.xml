@@ -38,6 +38,22 @@
 			<artifactId>spring-test</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
+
+		<!-- JSON Binding을 시키기 위한 import ajax처리 -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.7.3</version>
+		</dependency>
+
+		<!-- JSONObject Array 읽고 쓰기 -->
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>2.4</version>
+			<classifier>jdk15</classifier>
+		</dependency>
+
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
@@ -122,8 +138,8 @@
 		</dependency>
 
 		<!-- Connection Pool -->
-		<!-- SQL처리를 할때는 커넥션을 맺고 끈어주는 역할을 해줘야하는데  -->
-		<!-- 연결을 맺고 끈는 작업은 시간이 오래걸리기 때문에 미리 연결을 맺어놓는다  -->
+		<!-- SQL처리를 할때는 커넥션을 맺고 끈어주는 역할을 해줘야하는데 -->
+		<!-- 연결을 맺고 끈는 작업은 시간이 오래걸리기 때문에 미리 연결을 맺어놓는다 -->
 		<dependency>
 			<groupId>com.zaxxer</groupId>
 			<artifactId>HikariCP</artifactId>
@@ -157,7 +173,7 @@
 			<artifactId>mybatis</artifactId>
 			<version>3.3.1</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>

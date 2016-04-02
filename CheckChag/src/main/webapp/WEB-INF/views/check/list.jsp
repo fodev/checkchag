@@ -9,6 +9,20 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script>
+var result='${msg}';
+
+if(result){
+	alert(result);
+}
+
+$.get( "http://192.168.0.15:8083/forJsonE2/json", function( r ) {
+    console.log(r);
+});
+</script>
+
 <ul>
 <c:forEach items="${list }" var="member">
 	<li>${member }</li>

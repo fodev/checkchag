@@ -5,4 +5,8 @@
     "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
+	<mappers>
+		<mapper class="org.checkchag.mapper.checkMapper" />
+	</mappers>
+	
 </configuration>

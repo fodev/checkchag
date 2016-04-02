@@ -2,7 +2,11 @@ package org.checkchag.service;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
+import org.checkchag.mapper.checkMapper;
 import org.checkchag.persistence.GenericDAO;
+import org.mybatis.spring.SqlSessionTemplate;
 
 public abstract class GenericServiceImpl<S extends GenericDAO<E, K>, E,K> implements GenericService<E, K>{
 	//GenericService에서는 기능을 명세하고 
@@ -15,6 +19,9 @@ public abstract class GenericServiceImpl<S extends GenericDAO<E, K>, E,K> implem
 	//dao를 넣어줘야하는데 dao는 현재 Generic으로 선언되어있어서 어떠한 DAO를 통해 DB와 연동을 할지 알 수없다.
 	//따라서 dao는 추상클래스의 생성자를 통해 하위 클래스가 dao를 집어넣을수있도록 구현해야한다.
 	private S dao;
+	
+	@Inject
+	private SqlSessionTemplate session;
 	public GenericServiceImpl(S dao) {
 		this.dao=dao;
 	}
@@ -22,7 +29,8 @@ public abstract class GenericServiceImpl<S extends GenericDAO<E, K>, E,K> implem
 	@Override
 	public void register(E vo) throws Exception {
 		// TODO Auto-generated method stub
-		dao.insert(vo);
+		//dao.insert(vo);
+		session.insert("insertMember",vo);
 	}
 
 	@Override

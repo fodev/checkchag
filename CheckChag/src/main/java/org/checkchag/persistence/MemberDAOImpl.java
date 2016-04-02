@@ -1,5 +1,7 @@
 package org.checkchag.persistence;
 
+import java.util.List;
+
 import org.checkchag.domain.MemberVO;
 
 public class MemberDAOImpl extends GenericDAOImpl<MemberVO, String> implements MemberDAO {
@@ -13,5 +15,4 @@ public class MemberDAOImpl extends GenericDAOImpl<MemberVO, String> implements M
 		// TODO Auto-generated constructor stub
 	}
 	
-
 }

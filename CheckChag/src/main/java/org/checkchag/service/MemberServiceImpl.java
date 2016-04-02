@@ -1,5 +1,9 @@
 package org.checkchag.service;
 
+import java.util.List;
+
+import javax.inject.Inject;
+
 import org.checkchag.domain.MemberVO;
 import org.checkchag.persistence.GenericDAO;
 
