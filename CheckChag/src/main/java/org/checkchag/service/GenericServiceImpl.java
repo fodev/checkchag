@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.checkchag.mapper.checkMapper;
 import org.checkchag.persistence.GenericDAO;
 import org.mybatis.spring.SqlSessionTemplate;
 
@@ -29,8 +28,7 @@ public abstract class GenericServiceImpl<S extends GenericDAO<E, K>, E,K> implem
 	@Override
 	public void register(E vo) throws Exception {
 		// TODO Auto-generated method stub
-		//dao.insert(vo);
-		session.insert("insertMember",vo);
+		dao.insert(vo);
 	}
 
 	@Override
